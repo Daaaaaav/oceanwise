@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OceanWise</title>
+    <link rel="stylesheet" href="static/style.css">   
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <img src="{{ url_for('static', filename='oceanwise_logo.png') }}" class="logo">
+            <ul class="nav-links">
+                <li><a href="#intro-video">Ocean Importance</a></li>
+                <li><a href="#marine-guide">Marine Life Guide</a></li>
+                <li><a href="#plastic-tracker">Plastic Tracker</a></li>
+                <li><a href="#virtual-dive">Virtual Dive</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Welcome to OceanWise</h1>
+        <p>Your daily guide to marine science and sustainability!</p>
+    </section>
+
+    <section id="intro-video">
+        <h2>The Importance of Our Oceans</h2>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/2uuWN20Lc4E?si=N6VrhBzQsxSHVmPV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <p>Find out why we should take part in keeping our oceans a better place by reducing pollution!</p>
+    </section>
+
+    <section id="marine-guide">
+        <h2>Marine Life Oceanographer Guide</h2>
+        <div class="chatbotContainer">
+            <div id="messageContainer" class="chatbox">
+                <p class="bot-message">Hello! I am Marine Bot, your guide around the oceans! How can I assist you with marine life and oceanography today?</p>
+            </div>
+            <form id="textForm">
+                <input id="text" type="text" placeholder="Ask me about marine life..." required>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </section>
+    
+    <section id="plastic-tracker">
+        <h2>Plastic Footprint Tracker</h2>
+        <p>Track your daily plastic usage and get tips to reduce waste!</p>
+        <form id="plastic-tracker-form">
+            <label for="plastic-items">Enter the number of plastic items used today:</label>
+            <input type="number" id="plastic-items" name="plastic-items" min="0" required>
+            <button type="submit">Calculate Footprint</button>
+        </form>
+        <div id="plastic-response"></div>
+    </section>
+    
+
+    <section id="virtual-dive">
+        <h2>Virtual Dive Experience With Sharks</h2>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/c9YRl7Yu-p8?si=K4oZ5atbeW35i5D9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <p>Explore underwater ecosystems in 360° with sharks around the world!</p>
+    </section>
+
+    <footer id="contact">
+        <p>&copy; 2024 OceanWise | Promoting Ocean Literacy</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="static/msg.js"></script> 
+</body>
+</html>
