@@ -41,11 +41,12 @@ def get_text_response():
 def submit_plastic_tracker():
     data = request.json
     plastic_items = data.get('plastic_items', 0)
+    yearly_plastic = data.get('yearly_plastic', 0)
+    lifetime_plastic = data.get('lifetime_plastic', 0)
     response = {
-        "message": f"You used {plastic_items} plastic items today. Try reducing your usage!"
+        "message": f"You used {plastic_items} plastic items today. That equals to {yearly_plastic} items per year and most likely {lifetime_plastic} kg worth of plastic in your lifetime if you keep this up!"
     }
     return jsonify(response)
-
 
 if __name__ == "__main__":
     app.run(debug=True)

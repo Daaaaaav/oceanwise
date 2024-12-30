@@ -4,7 +4,7 @@ $(document).ready(function () {
         const userMessage = $("#text").val().trim();
         if (userMessage === "") return;
         $("#messageContainer").append(`<div class="user-message">${userMessage}</div>`);
-        $("#text").val(""); 
+        $("#text").val("");
 
         $.ajax({
             type: "POST",
@@ -27,11 +27,17 @@ $(document).ready(function () {
             $("#plastic-response").text("Please enter a valid number of plastic items!");
             return;
         }
+        const yearlyPlastic = plasticItems * 365;
+        const lifetimePlastic = yearlyPlastic * 75;
 
         fetch('/submit_plastic_tracker', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ plastic_items: plasticItems })
+            body: JSON.stringify({
+                plastic_items: plasticItems,
+                yearly_plastic: yearlyPlastic,
+                lifetime_plastic: lifetimePlastic
+            })
         })
             .then(response => response.json())
             .then(data => {
