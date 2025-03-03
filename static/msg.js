@@ -48,3 +48,33 @@ $(document).ready(function () {
             });
     });
 });
+
+import { initializeApp } from 'firebase/app';
+import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
+const firebaseConfig = {
+    apiKey: "AIzaSyCACLE2MjchrHpw5uXf19IIa_9b6e-k7as",
+    authDomain: "oceanwise-748e2.firebaseapp.com",
+    projectId: "oceanwise-748e2",
+    storageBucket: "oceanwise-748e2.firebasestorage.app",
+    messagingSenderId: "132943118250",
+    appId: "1:132943118250:web:63af36a11fa381944035d3",
+    measurementId: "G-2HD2NTX6R3"
+  };
+  
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const db = firebase.firestore();
+
+db.collection("users").get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+        console.log(`${doc.id} => ${doc.data()}`);
+    });
+})
+
+.then((docRef) => {
+    console.log("Document written with ID: ", docRef.id);
+})
+
+.catch((error) => {
+    console.error("Error adding document! ", error);
+});
